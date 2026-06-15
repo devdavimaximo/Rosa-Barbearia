@@ -99,7 +99,7 @@ const itemVariants = {
   show:   { opacity: 1, y: 0, transition: { duration: 0.28, ease: [0.4, 0, 0.2, 1] as const } },
 }
 
-function ServiceItem({ name, icon }: { name: string; icon: ReactNode }) {
+function ServiceItem({ name }: { name: string; icon?: ReactNode }) {
   return (
     <motion.div
       variants={itemVariants}
