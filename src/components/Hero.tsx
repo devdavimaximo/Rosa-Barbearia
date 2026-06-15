@@ -44,7 +44,7 @@ export default function Hero() {
         >
           <span className="w-1.5 h-1.5 rounded-full bg-cream shrink-0" />
           <span className="text-[10px] font-semibold tracking-[2.5px] uppercase text-cream">
-            Barbearia Premium &bull; Gravataí
+            Barbearia &bull; Gravataí
           </span>
         </motion.div>
 
