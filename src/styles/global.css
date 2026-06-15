@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #1B1B1B;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; }
+  :focus-visible { outline: 2px solid #3D574C; outline-offset: 3px; }
+}
+
+@layer components {
+  /* ─── Layout ────────────────────────────────── */
+  .container {
+    @apply w-full max-w-[1200px] mx-auto px-5;
+  }
+
+  /* ─── Section ────────────────────────────────── */
+  .sec     { @apply py-24; }
+  .sec-head { @apply mb-14; }
+
+  /* ─── Typography ─────────────────────────────── */
+  .eyebrow {
+    @apply block text-[11px] font-semibold tracking-[3px] uppercase text-brand mb-3;
+  }
+  .eyebrow-light { @apply text-cream/65; }
+
+  .h-display {
+    @apply font-serif font-bold leading-[1.15] text-[#1B1B1B];
+    font-size: clamp(30px, 5.5vw, 50px);
+  }
+  .h-display-light { @apply text-white; }
+
+  .body-md { @apply text-[15px] leading-[1.75] text-gray-500; }
+
+  /* ─── Buttons ────────────────────────────────── */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-[14px]
+           rounded-sm font-sans text-sm font-semibold tracking-tight
+           transition-all duration-[250ms] whitespace-nowrap min-h-[48px]
+           cursor-pointer border-0 select-none;
+  }
+  .btn svg { @apply shrink-0; }
+
+  .btn-primary {
+    @apply bg-brand text-white
+           hover:bg-brand-dark hover:-translate-y-px hover:shadow-brand;
+  }
+  .btn-cream {
+    @apply bg-cream text-brand-dark font-bold
+           hover:bg-white hover:-translate-y-px hover:shadow-cream;
+  }
+  .btn-ghost-white {
+    @apply bg-white/[0.12] text-white border border-white/35
+           hover:bg-white/[0.22] hover:border-white/60;
+    backdrop-filter: blur(4px);
+  }
+  .btn-outline {
+    @apply bg-transparent text-brand border border-brand
+           hover:bg-brand hover:text-white;
+  }
+  .btn-sm  { @apply px-5 py-[10px] text-[13px] min-h-[40px]; }
+  .btn-full { @apply w-full; }
+
+  /* ─── Nav link (complex pseudo-element) ──────── */
+  .nav-link {
+    @apply text-[13px] font-medium relative pb-0.5 transition-colors duration-[250ms];
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-[-2px] left-0 h-[1.5px] w-0 transition-[width] duration-[250ms];
+  }
+  .nav-link:hover::after { @apply w-full; }
+
+  .nav-link-hero       { @apply text-white/80 hover:text-white; }
+  .nav-link-hero::after { @apply bg-cream; }
+
+  .nav-link-solid       { @apply text-gray-500 hover:text-brand; }
+  .nav-link-solid::after { @apply bg-brand; }
+}
